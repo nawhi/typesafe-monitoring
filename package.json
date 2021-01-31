@@ -5,15 +5,21 @@
   "author": "Nick White",
   "license": "MIT",
   "private": false,
-  "devDependencies": {
-    "ts-node": "^9.1.1",
-    "typescript": "^4.1.3"
-  },
   "scripts": {
-    "start": "ts-node src/index.ts"
+    "start": "ts-node src/index.ts",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "dependencies": {
     "fastify": "^3.11.0",
     "fastify-sensible": "^3.1.0"
+  },
+  "devDependencies": {
+    "prettier": "^2.2.1",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "prettier": {
+    "tabWidth": 2,
+    "singleQuote": true
   }
 }

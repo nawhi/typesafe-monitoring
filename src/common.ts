@@ -7,13 +7,13 @@ export const SEARCH_REQUEST_SCHEMA = {
         properties: {
           pickUp: { type: 'string', format: 'date-time' },
           dropOff: { type: 'string', format: 'date-time' },
-          location: { type: 'string' }
+          location: { type: 'string' },
         },
-        required: ['pickUp', 'dropOff', 'location']
-      }
+        required: ['pickUp', 'dropOff', 'location'],
+      },
     },
-    required: ['search']
-  }
+    required: ['search'],
+  },
 };
 export type Search = {
   pickUp: Date;
@@ -35,12 +35,12 @@ export function isTooManyRequests(_: Search): boolean {
 
 export function runSearch(_: Search): Rate[] {
   if (maybe()) {
-    throw new Error("request failed");
+    throw new Error('request failed');
   }
   return [
-    { amount: 100, company: "Super Wheelz" },
-    { amount: 200, company: "Turbo Hires" },
-    { amount: 300, company: "Premium Rides" },
+    { amount: 100, company: 'Super Wheelz' },
+    { amount: 200, company: 'Turbo Hires' },
+    { amount: 300, company: 'Premium Rides' },
   ];
 }
 

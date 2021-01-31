@@ -1,13 +1,19 @@
-import { FastifyInstance, FastifyLoggerInstance } from "fastify";
-import { isPermitted, isTooManyRequests, runSearch, Search, SEARCH_REQUEST_SCHEMA } from './common';
+import { FastifyInstance, FastifyLoggerInstance } from 'fastify';
+import {
+  isPermitted,
+  isTooManyRequests,
+  runSearch,
+  Search,
+  SEARCH_REQUEST_SCHEMA,
+} from './common';
 
 type Events = {
-  "awesome-corp.brilliant-dept.request": {
-    outcome: "success" | "rate-limited" | "forbidden" | "error";
+  'awesome-corp.brilliant-dept.request': {
+    outcome: 'success' | 'rate-limited' | 'forbidden' | 'error';
     location: string;
   };
-  "awesome-corp.brilliant-dept.some-other-metric-used-elsewhere": {};
-  "awesome-corp.brilliant-dept.some-other-metric-2": { name: string };
+  'awesome-corp.brilliant-dept.some-other-metric-used-elsewhere': {};
+  'awesome-corp.brilliant-dept.some-other-metric-2': { name: string };
 };
 
 interface Monitor {
@@ -24,22 +30,22 @@ class MonitorStub implements Monitor {
 
 export const v3 = async (server: FastifyInstance) => {
   const monitor = new MonitorStub(server.log);
-  server.post<{ Body: { search: Search } }>("/v3", {
+  server.post<{ Body: { search: Search } }>('/v3', {
     schema: SEARCH_REQUEST_SCHEMA,
     handler: async (req, res) => {
       const { search } = req.body;
 
       if (!isPermitted(search)) {
-        monitor.register("awesome-corp.brilliant-dept.request", {
-          outcome: "forbidden",
+        monitor.register('awesome-corp.brilliant-dept.request', {
+          outcome: 'forbidden',
           location: search.location,
         });
         return res.forbidden();
       }
 
       if (isTooManyRequests(search)) {
-        monitor.register("awesome-corp.brilliant-dept.request", {
-          outcome: "rate-limited",
+        monitor.register('awesome-corp.brilliant-dept.request', {
+          outcome: 'rate-limited',
           location: search.location,
         });
         return res.tooManyRequests();
@@ -47,14 +53,14 @@ export const v3 = async (server: FastifyInstance) => {
 
       try {
         const result = await runSearch(search);
-        monitor.register("awesome-corp.brilliant-dept.request", {
-          outcome: "success",
+        monitor.register('awesome-corp.brilliant-dept.request', {
+          outcome: 'success',
           location: search.location,
         });
         return { result };
       } catch (e) {
-        monitor.register("awesome-corp.brilliant-dept.request", {
-          outcome: "error",
+        monitor.register('awesome-corp.brilliant-dept.request', {
+          outcome: 'error',
           location: search.location,
         });
         return res.internalServerError(e.message);
