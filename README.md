@@ -9,7 +9,7 @@ This is meant to simulate a system which makes a request on behalf of a user tha
 
 In this type of system, engineers and want to monitor the causes of different types of failure in a business-friendly way so that we can get a quick visual understanding of the throughput of our system, and whether something might have changed (either in our system, or in a dependency) that has affected our outcomes.
 
-Try sending a POST request to any of the `/optionX` endpoints with a body like the following:
+Try sending a POST request to any of the `/vX` endpoints with a body like the following:
 
 ```json
 {
