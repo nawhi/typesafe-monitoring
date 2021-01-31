@@ -13,8 +13,8 @@
     "start": "ts-node src/index.ts"
   },
   "dependencies": {
-    "@types/datadog-metrics": "^0.6.0",
-    "datadog-metrics": "^0.8.2",
+    "@types/dogapi": "^2.8.5",
+    "dogapi": "^2.8.3",
     "fastify": "^3.11.0",
     "fastify-sensible": "^3.1.0"
   }

@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@types/datadog-metrics@^0.6.0":
-  version "0.6.0"
-  resolved "https://registry.yarnpkg.com/@types/datadog-metrics/-/datadog-metrics-0.6.0.tgz#786c9b8669738327e8a742728e34e9b150011364"
-  integrity sha512-MBOPUAvG6xRSgQaOtdEUnF1qwx0JGTjTVhKPzw9a3C9hguaWMNM3KUjRJMRlkgjw8AhV56IXfl2cQH9Tqd5ydA==
+"@types/dogapi@^2.8.5":
+  version "2.8.5"
+  resolved "https://registry.yarnpkg.com/@types/dogapi/-/dogapi-2.8.5.tgz#50d7c788be66720a992e75fae79d6317bec50c4a"
+  integrity sha512-bqYJpUEcFoFaTOah1NDKlfB9BqqPjp+KgrqklZbMkDi13p2CmijROJjet8yIEoLSGqUdeYajHRWbhuyNEsu4+w==
 
 abstract-logging@^2.0.0:
   version "2.0.1"
@@ -67,21 +67,6 @@ create-require@^1.1.0:
   resolved "https://registry.yarnpkg.com/create-require/-/create-require-1.1.1.tgz#c1d7e8f1e5f6cfc9ff65f9cd352d37348756c333"
   integrity sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==
 
-datadog-metrics@^0.8.2:
-  version "0.8.2"
-  resolved "https://registry.yarnpkg.com/datadog-metrics/-/datadog-metrics-0.8.2.tgz#f80e6892ce20ad6af31ae6688d5c65697de0cf3f"
-  integrity sha512-84WomqgMr7CigstOglR0dapSgaZ9w1kjdnjRAZQWEdwoXDxTS86qcjx+MOAGW3+tM/RNfA9Z3G//sFl+CBNOAA==
-  dependencies:
-    debug "3.1.0"
-    dogapi "2.8.3"
-
-debug@3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/debug/-/debug-3.1.0.tgz#5bb5a0672628b64149566ba16819e61518c67261"
-  integrity sha512-OX8XqP7/1a9cqkxYw2yXss15f26NKWBpDXQd0/uK/KPqdQhxbPa994hnzjcE2VqQpDslf55723cKPUOGSmMY3g==
-  dependencies:
-    ms "2.0.0"
-
 debug@^4.0.0:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/debug/-/debug-4.3.1.tgz#f0d229c505e0c6d8c49ac553d1b13dc183f6b2ee"
@@ -109,7 +94,7 @@ diff@^4.0.1:
   resolved "https://registry.yarnpkg.com/diff/-/diff-4.0.2.tgz#60f3aecb89d5fae520c11aa19efc2bb982aade7d"
   integrity sha512-58lmxKSA4BNyLz+HHMUzlOEpg09FV+ev6ZMe3vJihgdxzgcwZ8VoEEPmALCZG9LmqfVoNMMKpttIYTVG6uDY7A==
 
-dogapi@2.8.3:
+dogapi@^2.8.3:
   version "2.8.3"
   resolved "https://registry.yarnpkg.com/dogapi/-/dogapi-2.8.3.tgz#f7b2210bb03e17b54bd7c9fce7894152efc15481"
   integrity sha512-CzJIllAcv17H8hylyuljldJv+2EGal5+Fa+gsXFrXDo1zl8cq9jk7FDCXDqH4C/tPNAusS9ckV8wuBFtCiuTUg==
@@ -321,11 +306,6 @@ minimist@^1.1.1, minimist@^1.2.0:
   version "1.2.5"
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-1.2.5.tgz#67d66014b66a6a8aaa0c083c5fd58df4e4e97602"
   integrity sha512-FM9nNUYrRBAELZQT3xeZQ7fmMOBg6nWNmJKTcgsJeaLstP/UODVpGsr5OhXhhXg6f+qtJ8uiZ+PUxkDWcgIXLw==
-
-ms@2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/ms/-/ms-2.0.0.tgz#5608aeadfc00be6c2901df5f9861788de0d597c8"
-  integrity sha1-VgiurfwAvmwpAd9fmGF4jeDVl8g=
 
 ms@2.1.2:
   version "2.1.2"

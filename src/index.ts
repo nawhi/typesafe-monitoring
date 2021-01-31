@@ -1,8 +1,11 @@
 import fastify from 'fastify';
 import fastifySensible from 'fastify-sensible';
 import { v1 } from './v1';
+import { v2 } from './v2';
 
-fastify()
+let port = 8000;
+fastify({ logger: true })
   .register(fastifySensible)
   .register(v1)
-  .listen({ port: 8000 });
+  .register(v2)
+  .listen({ port });
