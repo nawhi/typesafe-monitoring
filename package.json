@@ -1,5 +1,5 @@
 {
-  "name": "safe-monitoring-in-typescript",
+  "name": "typesafe-monitoring",
   "version": "1.0.0",
   "description": "Examples of how to use TypeScript to reduce developer error",
   "author": "Nick White",

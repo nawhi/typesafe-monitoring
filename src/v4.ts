@@ -1,5 +1,11 @@
 import { FastifyInstance, FastifyLoggerInstance } from "fastify";
-import { isPermitted, isTooManyRequests, runSearch, Search, SEARCH_REQUEST_SCHEMA } from './common';
+import {
+  isPermitted,
+  isTooManyRequests,
+  runSearch,
+  Search,
+  SEARCH_REQUEST_SCHEMA,
+} from "./common";
 
 type RequestOutcome = "success" | "rate-limited" | "forbidden" | "error";
 
@@ -13,24 +19,22 @@ class MonitorStub implements Monitor {
   constructor(private logger: FastifyLoggerInstance) {}
 
   registerRequest(outcome: RequestOutcome, location: string): void {
-    this.logger.info({
-      event: "awesome-corp.brilliant-dept.request",
-      tags: { outcome, location },
-    });
+    this.register("awesome-corp.brilliant-dept.request", { outcome, location });
   }
 
   registerOtherMetric1(): void {
-    this.logger.info({
-      event: "awesome-corp.brilliant-dept.some-other-metric-used-elsewhere",
-      tags: {},
-    });
+    this.register(
+      "awesome-corp.brilliant-dept.some-other-metric-used-elsewhere",
+      {}
+    );
   }
 
   registerOtherMetric2(name: string): void {
-    this.logger.info({
-      event: "awesome-corp.brilliant-dept.some-other-metric-2",
-      tags: { name },
-    });
+    this.register("awesome-corp.brilliant-dept.some-other-metric-2", { name });
+  }
+
+  private register(event: string, tags: { [k: string]: string }) {
+    this.logger.info({ event, tags });
   }
 }
 
