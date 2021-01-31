@@ -1,22 +1,14 @@
-export type Search = {
-  pickUp: Date;
-  dropOff: Date;
-  location: string;
-};
-type Rate = {
-  amount: number;
-  company: string;
-};
+import { Rate, Search } from './types';
 
-export function isPermitted(search: Search): boolean {
+export function isPermitted(_: Search): boolean {
   return maybe();
 }
 
-export function isTooManyRequests(search: Search): boolean {
+export function isTooManyRequests(_: Search): boolean {
   return maybe();
 }
 
-export function runSearch(search: Search): Rate[] {
+export function runSearch(_: Search): Rate[] {
   if (maybe()) {
     throw new Error("request failed");
   }
