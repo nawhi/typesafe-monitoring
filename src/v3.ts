@@ -1,26 +1,31 @@
-import { FastifyInstance, FastifyLoggerInstance } from 'fastify';
+import { FastifyInstance, FastifyLoggerInstance } from "fastify";
 import { Search, SEARCH_REQUEST_SCHEMA } from "./types";
-import {
-  isPermitted,
-  isTooManyRequests,
-  runSearch,
-} from "./common";
+import { isPermitted, isTooManyRequests, runSearch } from "./common";
+
+type Events = {
+  "awesome-corp.brilliant-dept.request": {
+    outcome: "success" | "rate-limited" | "forbidden" | "error";
+    location: string;
+  };
+  "awesome-corp.brilliant-dept.some-other-metric-used-elsewhere": {};
+  "awesome-corp.brilliant-dept.some-other-metric-2": { name: string };
+};
 
 interface Monitor {
-  register(event: string, tags: { [k: string]: string }): void;
+  register<E extends keyof Events>(event: E, tags: Events[E]): void;
 }
 
 class MonitorStub implements Monitor {
   constructor(private logger: FastifyLoggerInstance) {}
 
-  register(event: string, tags: { [k: string]: string }): void {
+  register<E extends keyof Events>(event: E, tags: Events[E]): void {
     this.logger.info({ event, tags });
   }
 }
 
-export const v2 = async (server: FastifyInstance) => {
+export const v3 = async (server: FastifyInstance) => {
   const monitor = new MonitorStub(server.log);
-  server.post<{ Body: { search: Search } }>("/v2", {
+  server.post<{ Body: { search: Search } }>("/v3", {
     schema: SEARCH_REQUEST_SCHEMA,
     handler: async (req, res) => {
       const { search } = req.body;

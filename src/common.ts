@@ -21,20 +21,3 @@ export function runSearch(_: Search): Rate[] {
 }
 
 const maybe = () => Boolean(Math.floor(Math.random() + 0.5));
-
-interface Monitor {
-  register(event: string, tags: { [k: string]: string }): void;
-}
-
-/**
- * This example just produces a log of the event, but in a production
- * situation it might send the events to a third-party monitoring solution
- * such as Datadog.
- */
-export class MonitorStub implements Monitor {
-  constructor(private logger: FastifyLoggerInstance) {}
-
-  register(event: string, tags: { [k: string]: string }): void {
-    this.logger.info({ event, tags });
-  }
-}
