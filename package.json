@@ -1,0 +1,12 @@
+{
+  "name": "datadog-typescript",
+  "version": "1.0.0",
+  "description": "Examples of how to use TypeScript to send Datadog metrics",
+  "author": "Nick White",
+  "license": "MIT",
+  "private": false,
+  "devDependencies": {
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  }
+}
