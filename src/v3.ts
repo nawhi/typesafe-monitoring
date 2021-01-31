@@ -1,6 +1,5 @@
 import { FastifyInstance, FastifyLoggerInstance } from "fastify";
-import { Search, SEARCH_REQUEST_SCHEMA } from "./types";
-import { isPermitted, isTooManyRequests, runSearch } from "./common";
+import { isPermitted, isTooManyRequests, runSearch, Search, SEARCH_REQUEST_SCHEMA } from './common';
 
 type Events = {
   "awesome-corp.brilliant-dept.request": {

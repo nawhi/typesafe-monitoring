@@ -1,10 +1,9 @@
 import { FastifyInstance, FastifyLoggerInstance } from 'fastify';
-import { Search, SEARCH_REQUEST_SCHEMA } from "./types";
 import {
   isPermitted,
   isTooManyRequests,
-  runSearch,
-} from "./common";
+  runSearch, Search, SEARCH_REQUEST_SCHEMA
+} from './common';
 
 interface Monitor {
   register(event: string, tags: { [k: string]: string }): void;

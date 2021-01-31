@@ -1,7 +1,7 @@
 {
-  "name": "datadog-typescript",
+  "name": "safe-monitoring-in-typescript",
   "version": "1.0.0",
-  "description": "Examples of how to use TypeScript to send Datadog metrics",
+  "description": "Examples of how to use TypeScript to reduce developer error",
   "author": "Nick White",
   "license": "MIT",
   "private": false,

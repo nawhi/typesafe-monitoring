@@ -1,6 +1,5 @@
 import { FastifyInstance } from 'fastify';
-import { isPermitted, isTooManyRequests, runSearch } from './common';
-import { Search, SEARCH_REQUEST_SCHEMA } from './types';
+import { isPermitted, isTooManyRequests, runSearch, Search, SEARCH_REQUEST_SCHEMA } from './common';
 
 export const v1 = async (server: FastifyInstance)  => {
   server.post<{ Body: { search: Search } }>("/v1", {
