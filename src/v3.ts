@@ -36,10 +36,6 @@ export const v3 = async (server: FastifyInstance) => {
       const { search } = req.body;
 
       if (!isPermitted(search)) {
-
-
-
-
         monitor.register('awesome-corp.brilliant-dept.request', {
           outcome: 'forbidden',
           location: search.location,
