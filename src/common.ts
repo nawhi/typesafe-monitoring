@@ -33,7 +33,7 @@ export function isTooManyRequests(_: Search): boolean {
   return maybe();
 }
 
-export function runSearch(_: Search): Rate[] {
+export async function runSearch(_: Search): Promise<Rate[]> {
   if (maybe()) {
     throw new Error('request failed');
   }

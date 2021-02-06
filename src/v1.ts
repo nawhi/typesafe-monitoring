@@ -21,11 +21,9 @@ export const v1 = async (server: FastifyInstance) => {
         return res.tooManyRequests();
       }
 
-      try {
-        return { result: await runSearch(search) };
-      } catch (e) {
-        return res.internalServerError(e.message);
-      }
+      return runSearch(search)
+        .then((result) => ({ result }))
+        .catch((e) => res.internalServerError(e.message));
     },
   });
 };
