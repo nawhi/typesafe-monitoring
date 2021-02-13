@@ -7,7 +7,7 @@ export class GoogleMapsClient {
 
   public async getPlaceDetails<K extends keyof Place>(
     placeId: string,
-    fields?: K[]
+    fields: [K, ...K[]]
   ): Promise<Pick<Place, K>> {
     const details = await this.client.placeDetails({
       params: { key: this.apiKey, place_id: placeId, fields },
